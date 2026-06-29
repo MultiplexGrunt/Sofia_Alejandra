@@ -218,7 +218,7 @@ body {
   transition: opacity 0.3s ease;
 }
 .envelope-overlay.opened .butterfly-sticker-wrapper {
-  animation: fly-away 1.8s forwards cubic-bezier(0.25, 1, 0.5, 1);
+  animation: fly-away 3.2s forwards cubic-bezier(0.25, 0.46, 0.45, 0.94);
   pointer-events: none;
 }
 
@@ -241,13 +241,13 @@ body {
   animation: occasional-flap-right 8s infinite ease-in-out;
 }
 
-/* Aleteo rápido cuando sale volando */
+/* Aleteo más lento y delicado cuando sale volando */
 .envelope-overlay.opened .butterfly-svg .wing.left-wing {
-  animation: rapid-flap-left 0.12s infinite ease-in-out;
+  animation: rapid-flap-left 0.25s infinite ease-in-out;
 }
 
 .envelope-overlay.opened .butterfly-svg .wing.right-wing {
-  animation: rapid-flap-right 0.12s infinite ease-in-out;
+  animation: rapid-flap-right 0.25s infinite ease-in-out;
 }
 
 /* Keyframes de Aleteo y Animaciones */
@@ -263,12 +263,12 @@ body {
 
 @keyframes rapid-flap-left {
   0%, 100% { transform: scaleX(1); }
-  50% { transform: scaleX(0.1) skewY(-8deg); }
+  50% { transform: scaleX(0.15) skewY(-6deg); }
 }
 
 @keyframes rapid-flap-right {
   0%, 100% { transform: scaleX(1); }
-  50% { transform: scaleX(0.1) skewY(8deg); }
+  50% { transform: scaleX(0.15) skewY(6deg); }
 }
 
 @keyframes gentleHover {
@@ -282,11 +282,23 @@ body {
     opacity: 1;
   }
   15% {
-    transform: translate(-50%, -35%) scale(1.15) rotate(-15deg);
+    transform: translate(-42%, -48%) scale(1.1) rotate(12deg);
     opacity: 1;
   }
+  35% {
+    transform: translate(-60%, -68%) scale(0.9) rotate(-15deg);
+    opacity: 0.95;
+  }
+  55% {
+    transform: translate(-35%, -92%) scale(0.7) rotate(20deg);
+    opacity: 0.85;
+  }
+  75% {
+    transform: translate(-55%, -115%) scale(0.55) rotate(-20deg);
+    opacity: 0.65;
+  }
   100% {
-    transform: translate(-50%, -150vh) scale(0.2) rotate(-45deg);
+    transform: translate(-40%, -170vh) scale(0.2) rotate(30deg);
     opacity: 0;
   }
 }

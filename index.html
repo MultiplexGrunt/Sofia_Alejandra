@@ -48,39 +48,60 @@
             <div class="butterfly-sticker-wrapper">
                 <svg class="butterfly-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                     <defs>
-                        <!-- Degradado Dorado Ultra Premium -->
-                        <linearGradient id="gold-sticker" x1="0%" y1="100%" x2="100%" y2="0%">
-                            <stop offset="0%" stop-color="#b8860b" />
-                            <stop offset="25%" stop-color="#e5c158" />
-                            <stop offset="50%" stop-color="#fff2a1" />
-                            <stop offset="75%" stop-color="#e5c158" />
+                        <!-- Degradado para las alas principales (rosa acuarela suave) -->
+                        <linearGradient id="pink-wing-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#ffd5d9" />
+                            <stop offset="50%" stop-color="#f7a4a9" />
+                            <stop offset="100%" stop-color="#e27e85" />
+                        </linearGradient>
+                        
+                        <!-- Degradado dorado para los bordes y cuerpo -->
+                        <linearGradient id="gold-line-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#ffd700" />
+                            <stop offset="50%" stop-color="#dfb15b" />
                             <stop offset="100%" stop-color="#b8860b" />
                         </linearGradient>
                     </defs>
                     
                     <g class="wings-container">
-                        <!-- Ala Superior Izquierda -->
-                        <path class="wing left-wing" d="M 50,50 C 45,25 20,12 12,25 C 5,35 15,62 50,50" fill="url(#gold-sticker)" stroke="#9c721c" stroke-width="0.8" />
-                        <!-- Ala Inferior Izquierda -->
-                        <path class="wing left-wing" d="M 50,50 C 40,65 22,78 32,88 C 42,98 48,70 50,50" fill="url(#gold-sticker)" stroke="#9c721c" stroke-width="0.8" />
+                        <!-- ALA IZQUIERDA -->
+                        <g class="wing left-wing">
+                            <!-- Ala Superior Izquierda -->
+                            <path d="M 50,50 C 40,20 15,10 8,28 C 3,42 22,62 50,50" fill="url(#pink-wing-grad)" opacity="0.95" />
+                            <!-- Ala Inferior Izquierda -->
+                            <path d="M 50,50 C 35,68 18,80 26,90 C 34,98 48,72 50,50" fill="url(#pink-wing-grad)" opacity="0.85" />
+                            <!-- Capa interna decorativa rosa claro -->
+                            <path d="M 50,50 C 42,28 25,20 18,30 C 14,36 28,52 50,50" fill="#fff0f2" opacity="0.65" />
+                            <!-- Nervaduras y filigrana dorada de contorno -->
+                            <path d="M 50,50 C 40,20 15,10 8,28 C 3,42 22,62 50,50" fill="none" stroke="url(#gold-line-grad)" stroke-width="0.9" />
+                            <path d="M 50,50 C 35,68 18,80 26,90 C 34,98 48,72 50,50" fill="none" stroke="url(#gold-line-grad)" stroke-width="0.75" />
+                            <path d="M 50,50 Q 32,36 22,34 M 50,50 Q 32,48 24,50" fill="none" stroke="url(#gold-line-grad)" stroke-width="0.5" opacity="0.8" />
+                        </g>
                         
-                        <!-- Ala Superior Derecha -->
-                        <path class="wing right-wing" d="M 50,50 C 55,25 80,12 88,25 C 95,35 85,62 50,50" fill="url(#gold-sticker)" stroke="#9c721c" stroke-width="0.8" />
-                        <!-- Ala Inferior Derecha -->
-                        <path class="wing right-wing" d="M 50,50 C 60,65 78,78 68,88 C 58,98 52,70 50,50" fill="url(#gold-sticker)" stroke="#9c721c" stroke-width="0.8" />
-                        
-                        <!-- Filigrana / Venas doradas de textura -->
-                        <path class="wing left-wing" d="M 50,50 Q 30,32 20,30 M 50,50 Q 30,45 22,48 M 50,50 Q 38,62 33,68" stroke="#9c721c" stroke-width="0.6" fill="none" opacity="0.7" />
-                        <path class="wing right-wing" d="M 50,50 Q 70,32 80,30 M 50,50 Q 70,45 78,48 M 50,50 Q 62,62 67,68" stroke="#9c721c" stroke-width="0.6" fill="none" opacity="0.7" />
+                        <!-- ALA DERECHA -->
+                        <g class="wing right-wing">
+                            <!-- Ala Superior Derecha -->
+                            <path d="M 50,50 C 60,20 85,10 92,28 C 97,42 78,62 50,50" fill="url(#pink-wing-grad)" opacity="0.95" />
+                            <!-- Ala Inferior Derecha -->
+                            <path d="M 50,50 C 65,68 82,80 74,90 C 66,98 52,72 50,50" fill="url(#pink-wing-grad)" opacity="0.85" />
+                            <!-- Capa interna decorativa rosa claro -->
+                            <path d="M 50,50 C 58,28 75,20 82,30 C 86,36 72,52 50,50" fill="#fff0f2" opacity="0.65" />
+                            <!-- Nervaduras y filigrana dorada de contorno -->
+                            <path d="M 50,50 C 60,20 85,10 92,28 C 97,42 78,62 50,50" fill="none" stroke="url(#gold-line-grad)" stroke-width="0.9" />
+                            <path d="M 50,50 C 65,68 82,80 74,90 C 66,98 52,72 50,50" fill="none" stroke="url(#gold-line-grad)" stroke-width="0.75" />
+                            <path d="M 50,50 Q 68,36 78,34 M 50,50 Q 68,48 76,50" fill="none" stroke="url(#gold-line-grad)" stroke-width="0.5" opacity="0.8" />
+                        </g>
                     </g>
                     
+                    <!-- CUERPO DE LA MARIPOSA (Elegante y fino) -->
                     <g class="butterfly-body-group">
-                        <ellipse cx="50" cy="50" rx="3.2" ry="19" fill="#8c4f5e" />
-                        <circle cx="50" cy="30" r="3.8" fill="#8c4f5e" />
-                        <path d="M 48,28 Q 42,12 32,15" stroke="#8c4f5e" stroke-width="1.5" fill="none" />
-                        <circle cx="32" cy="15" r="1.5" fill="#8c4f5e" />
-                        <path d="M 52,28 Q 58,12 68,15" stroke="#8c4f5e" stroke-width="1.5" fill="none" />
-                        <circle cx="68" cy="15" r="1.5" fill="#8c4f5e" />
+                        <ellipse cx="50" cy="52" rx="1.8" ry="15" fill="url(#gold-line-grad)" />
+                        <circle cx="50" cy="33" r="2.5" fill="#8c4f5e" />
+                        <!-- Antenas finas -->
+                        <path d="M 50,33 Q 44,18 36,20" stroke="#8c4f5e" stroke-width="0.8" fill="none" />
+                        <circle cx="36" cy="20" r="0.7" fill="#dfb15b" />
+                        <path d="M 50,33 Q 56,18 64,20" stroke="#8c4f5e" stroke-width="0.8" fill="none" />
+                        <circle cx="64" cy="20" r="0.7" fill="#dfb15b" />
                     </g>
                 </svg>
             </div>
