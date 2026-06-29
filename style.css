@@ -218,7 +218,8 @@ body {
   transition: opacity 0.3s ease;
 }
 .envelope-overlay.opened .butterfly-sticker-wrapper {
-  opacity: 0;
+  animation: fly-away 1.8s forwards cubic-bezier(0.25, 1, 0.5, 1);
+  pointer-events: none;
 }
 
 .butterfly-svg {
@@ -226,34 +227,68 @@ body {
   height: 80px;
   filter: drop-shadow(0 4px 8px rgba(140, 79, 94, 0.2));
   transform-style: preserve-3d;
-  animation: gentleHover 3s infinite ease-in-out;
+  animation: gentleHover 3.5s infinite ease-in-out;
 }
 
-/* Aleteo 3D de la Mariposa */
+/* Aleteo Ocasional de la Mariposa en reposo */
 .butterfly-svg .wing.left-wing {
   transform-origin: 50px 50px;
-  animation: flap-left 2.2s infinite alternate ease-in-out;
+  animation: occasional-flap-left 8s infinite ease-in-out;
 }
 
 .butterfly-svg .wing.right-wing {
   transform-origin: 50px 50px;
-  animation: flap-right 2.2s infinite alternate ease-in-out;
+  animation: occasional-flap-right 8s infinite ease-in-out;
+}
+
+/* Aleteo rápido cuando sale volando */
+.envelope-overlay.opened .butterfly-svg .wing.left-wing {
+  animation: rapid-flap-left 0.12s infinite ease-in-out;
+}
+
+.envelope-overlay.opened .butterfly-svg .wing.right-wing {
+  animation: rapid-flap-right 0.12s infinite ease-in-out;
 }
 
 /* Keyframes de Aleteo y Animaciones */
-@keyframes flap-left {
-  0% { transform: scaleX(1); }
-  100% { transform: scaleX(0.25) skewY(-5deg); }
+@keyframes occasional-flap-left {
+  0%, 15%, 30%, 100% { transform: scaleX(1); }
+  7.5%, 22.5% { transform: scaleX(0.18) skewY(-4deg); }
 }
 
-@keyframes flap-right {
-  0% { transform: scaleX(1); }
-  100% { transform: scaleX(0.25) skewY(5deg); }
+@keyframes occasional-flap-right {
+  0%, 15%, 30%, 100% { transform: scaleX(1); }
+  7.5%, 22.5% { transform: scaleX(0.18) skewY(4deg); }
+}
+
+@keyframes rapid-flap-left {
+  0%, 100% { transform: scaleX(1); }
+  50% { transform: scaleX(0.1) skewY(-8deg); }
+}
+
+@keyframes rapid-flap-right {
+  0%, 100% { transform: scaleX(1); }
+  50% { transform: scaleX(0.1) skewY(8deg); }
 }
 
 @keyframes gentleHover {
-  0%, 100% { transform: translateY(0) scale(1); }
-  50% { transform: translateY(-5px) scale(1.05); }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+@keyframes fly-away {
+  0% {
+    transform: translate(-50%, -50%) scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  15% {
+    transform: translate(-50%, -35%) scale(1.15) rotate(-15deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -150vh) scale(0.2) rotate(-45deg);
+    opacity: 0;
+  }
 }
 
 /* ==========================================================================
