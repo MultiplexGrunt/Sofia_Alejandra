@@ -22,22 +22,59 @@
 </head>
 <body>
 
-    <!-- Pantalla de Bienvenida (Puerta de Entrada) para activar Audio -->
+    <!-- Pantalla de Bienvenida (Sobre Interactivo) -->
     <div id="welcome-screen" class="welcome-screen">
-        <div class="welcome-card">
-            <div class="welcome-flower-arch"></div>
-            <div class="welcome-avatar-wrapper">
-                <img src="assets/invitacion_extra.jpg" alt="Sofía Alejandra" class="welcome-avatar">
+        <div class="envelope-wrapper">
+            <div class="envelope">
+                <!-- Parte trasera del sobre (Fondo interno) -->
+                <div class="envelope-back"></div>
+                
+                <!-- Carta de Bienvenida (dentro del sobre) -->
+                <div id="welcome-card" class="welcome-card">
+                    <div class="welcome-flower-arch"></div>
+                    <div class="welcome-avatar-wrapper">
+                        <img src="assets/invitacion_extra.jpg" alt="Sofía Alejandra" class="welcome-avatar">
+                    </div>
+                    <p class="welcome-subtitle">Estás invitado al Baby Shower de</p>
+                    <h1 class="welcome-title">Sofía Alejandra</h1>
+                    <p class="welcome-date">11 • Julio • 2026</p>
+                </div>
+                
+                <!-- Parte frontal del sobre (Papel doblado con pliegues) -->
+                <div class="envelope-paper">
+                    <div class="envelope-paper-left"></div>
+                    <div class="envelope-paper-right"></div>
+                    <div class="envelope-paper-bottom"></div>
+                </div>
+                
+                <!-- Solapa superior que se abre -->
+                <div class="envelope-flap"></div>
+                
+                <!-- Pegatina de Mariposa Interactiva -->
+                <button id="btn-open-envelope" class="butterfly-sticker-btn" aria-label="Abrir sobre de invitación">
+                    <div class="butterfly-shadow"></div>
+                    <svg class="butterfly-svg" viewBox="0 0 100 100">
+                        <!-- Ala Izquierda -->
+                        <path class="wing left-wing" d="M 50,50 C 35,20 10,20 15,45 C 18,60 38,55 50,50 C 35,68 22,85 38,85 C 50,85 48,65 50,50 Z" fill="url(#butterfly-gold)" />
+                        <!-- Ala Derecha -->
+                        <path class="wing right-wing" d="M 50,50 C 65,20 90,20 85,45 C 82,60 62,55 50,50 C 65,68 78,85 62,85 C 50,85 52,65 50,50 Z" fill="url(#butterfly-gold)" />
+                        <!-- Cuerpo -->
+                        <ellipse cx="50" cy="50" rx="3.5" ry="22" fill="#8c4f5e" />
+                        <!-- Antenas -->
+                        <path d="M 50,28 Q 45,10 32,15" stroke="#8c4f5e" stroke-width="2" fill="none" />
+                        <path d="M 50,28 Q 55,10 68,15" stroke="#8c4f5e" stroke-width="2" fill="none" />
+                        <!-- Degradados e estilos internos -->
+                        <defs>
+                            <linearGradient id="butterfly-gold" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#f2cf66" />
+                                <stop offset="50%" stop-color="#dfb15b" />
+                                <stop offset="100%" stop-color="#b8860b" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <span class="click-pulse-text">Pulsa para abrir</span>
+                </button>
             </div>
-            <p class="welcome-subtitle">Estás invitado al Baby Shower de</p>
-            <h1 class="welcome-title">Sofía Alejandra</h1>
-            <p class="welcome-date">11 • Julio • 2026</p>
-            <button id="btn-enter" class="btn-enter">
-                <span>Abrir Invitación</span>
-                <svg class="heart-icon" viewBox="0 0 24 24">
-                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-                </svg>
-            </button>
         </div>
     </div>
 

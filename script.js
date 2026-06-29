@@ -30,7 +30,8 @@ const CONFIG = {
    ========================================================================== */
 document.addEventListener("DOMContentLoaded", () => {
     const welcomeScreen = document.getElementById("welcome-screen");
-    const btnEnter = document.getElementById("btn-enter");
+    const btnOpenEnvelope = document.getElementById("btn-open-envelope");
+    const envelope = document.querySelector(".envelope");
     const bgMusic = document.getElementById("bg-music");
     const musicControl = document.getElementById("music-control");
     const btnMusicToggle = document.getElementById("btn-music-toggle");
@@ -40,32 +41,40 @@ document.addEventListener("DOMContentLoaded", () => {
     // Intentar reducir volumen para que sea agradable
     bgMusic.volume = 0.5;
 
-    // Al presionar el botón "Abrir Invitación"
-    btnEnter.addEventListener("click", () => {
-        // 1. Reproducir música de fondo
-        bgMusic.play().then(() => {
-            btnMusicToggle.classList.add("playing");
-        }).catch(err => {
-            console.log("Auto-play bloqueado por el navegador o error al reproducir:", err);
+    // Al presionar la pegatina de mariposa para abrir el sobre
+    if (btnOpenEnvelope) {
+        btnOpenEnvelope.addEventListener("click", () => {
+            // 1. Iniciar la reproducción de la música de fondo (consintiendo el audio en el navegador)
+            bgMusic.play().then(() => {
+                btnMusicToggle.classList.add("playing");
+            }).catch(err => {
+                console.log("Auto-play bloqueado por el navegador o error al reproducir:", err);
+            });
+
+            // 2. Añadir clase clicked a la mariposa para que empiece a volar
+            btnOpenEnvelope.classList.add("clicked");
+
+            // 3. Abrir la solapa del sobre tras el inicio del vuelo (400ms)
+            setTimeout(() => {
+                if (envelope) envelope.classList.add("open");
+            }, 400);
+
+            // 4. Desvanecer toda la pantalla de bienvenida tras ver salir la carta (2400ms)
+            setTimeout(() => {
+                welcomeScreen.classList.add("fade-out");
+                
+                // Mostrar el control de música y disparar efectos
+                musicControl.classList.remove("hidden");
+                startParticles();
+                initScrollReveal();
+            }, 2400);
+
+            // 5. Ocultar físicamente la pantalla del DOM para liberar espacio (3200ms)
+            setTimeout(() => {
+                welcomeScreen.style.display = "none";
+            }, 3200);
         });
-
-        // 2. Ocultar la pantalla de bienvenida con desvanecimiento
-        welcomeScreen.classList.add("fade-out");
-        
-        // 3. Mostrar el botón flotante de música
-        musicControl.classList.remove("hidden");
-        
-        // 4. Iniciar la generación de partículas en segundo plano
-        startParticles();
-        
-        // 5. Iniciar la lógica de Scroll Reveal
-        initScrollReveal();
-
-        // Limpiar el DOM después de terminar la animación de desvanecimiento
-        setTimeout(() => {
-            welcomeScreen.style.display = "none";
-        }, 800);
-    });
+    }
 
     // Control del botón de reproducción/pausa de música
     btnMusicToggle.addEventListener("click", () => {
