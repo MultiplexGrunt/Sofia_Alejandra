@@ -40,39 +40,75 @@
                     <p class="welcome-date">11 • Julio • 2026</p>
                 </div>
                 
-                <!-- Parte frontal del sobre (Papel doblado con pliegues) -->
-                <div class="envelope-paper">
-                    <div class="envelope-paper-left"></div>
-                    <div class="envelope-paper-right"></div>
-                    <div class="envelope-paper-bottom"></div>
-                </div>
+                <!-- Parte frontal del sobre (Papel doblado con vectores SVG precisos) -->
+                <svg class="envelope-front-svg" viewBox="0 0 380 420" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Pliegue Izquierdo -->
+                    <path d="M 0 160 L 190 290 L 0 420 Z" fill="#f7d4d8" stroke="#f2c4c9" stroke-width="1" />
+                    <!-- Pliegue Derecho -->
+                    <path d="M 380 160 L 190 290 L 380 420 Z" fill="#f4cfd3" stroke="#eebbc1" stroke-width="1" />
+                    <!-- Pliegue Inferior -->
+                    <path d="M 0 420 L 190 290 L 380 420 Z" fill="#fadfe2" stroke="#f4cbd0" stroke-width="1" />
+                    <!-- Borde dorado decorativo sutil en las costuras -->
+                    <path d="M 0 420 L 190 290 L 380 420" fill="none" stroke="#dfb15b" stroke-width="1.5" opacity="0.5" />
+                </svg>
                 
-                <!-- Solapa superior que se abre -->
-                <div class="envelope-flap"></div>
-                
-                <!-- Pegatina de Mariposa Interactiva -->
-                <button id="btn-open-envelope" class="butterfly-sticker-btn" aria-label="Abrir sobre de invitación">
-                    <div class="butterfly-shadow"></div>
-                    <svg class="butterfly-svg" viewBox="0 0 100 100">
-                        <!-- Ala Izquierda -->
-                        <path class="wing left-wing" d="M 50,50 C 35,20 10,20 15,45 C 18,60 38,55 50,50 C 35,68 22,85 38,85 C 50,85 48,65 50,50 Z" fill="url(#butterfly-gold)" />
-                        <!-- Ala Derecha -->
-                        <path class="wing right-wing" d="M 50,50 C 65,20 90,20 85,45 C 82,60 62,55 50,50 C 65,68 78,85 62,85 C 50,85 52,65 50,50 Z" fill="url(#butterfly-gold)" />
-                        <!-- Cuerpo -->
-                        <ellipse cx="50" cy="50" rx="3.5" ry="22" fill="#8c4f5e" />
-                        <!-- Antenas -->
-                        <path d="M 50,28 Q 45,10 32,15" stroke="#8c4f5e" stroke-width="2" fill="none" />
-                        <path d="M 50,28 Q 55,10 68,15" stroke="#8c4f5e" stroke-width="2" fill="none" />
-                        <!-- Degradados e estilos internos -->
+                <!-- Solapa superior del sobre (SVG rotatorio) -->
+                <div class="envelope-flap-container">
+                    <svg class="envelope-flap-svg" viewBox="0 0 380 290" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Cuerpo de la solapa -->
+                        <path d="M 0 0 L 380 0 L 190 290 Z" fill="url(#flap-pink-gradient)" />
+                        <!-- Borde dorado elegante -->
+                        <path d="M 0 0 L 190 290 L 380 0" fill="none" stroke="#dfb15b" stroke-width="2" />
                         <defs>
-                            <linearGradient id="butterfly-gold" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" stop-color="#f2cf66" />
-                                <stop offset="50%" stop-color="#dfb15b" />
-                                <stop offset="100%" stop-color="#b8860b" />
+                            <linearGradient id="flap-pink-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" stop-color="#fcdde1" />
+                                <stop offset="100%" stop-color="#f0b4bc" />
                             </linearGradient>
                         </defs>
                     </svg>
-                    <span class="click-pulse-text">Pulsa para abrir</span>
+                </div>
+                
+                <!-- Pegatina de Mariposa Interactiva (Joyel de oro y filigrana) -->
+                <button id="btn-open-envelope" class="butterfly-sticker-btn" aria-label="Abrir sobre de invitación">
+                    <svg class="butterfly-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <!-- Degradado Dorado Ultra Premium -->
+                            <linearGradient id="gold-sticker" x1="0%" y1="100%" x2="100%" y2="0%">
+                                <stop offset="0%" stop-color="#b8860b" />
+                                <stop offset="25%" stop-color="#e5c158" />
+                                <stop offset="50%" stop-color="#fff2a1" />
+                                <stop offset="75%" stop-color="#e5c158" />
+                                <stop offset="100%" stop-color="#b8860b" />
+                            </linearGradient>
+                        </defs>
+                        
+                        <!-- Alas con aleteo CSS independiente -->
+                        <g class="wings-container">
+                            <!-- Ala Superior Izquierda -->
+                            <path class="wing left-wing" d="M 50,50 C 45,25 20,12 12,25 C 5,35 15,62 50,50" fill="url(#gold-sticker)" stroke="#9c721c" stroke-width="0.8" />
+                            <!-- Ala Inferior Izquierda -->
+                            <path class="wing left-wing" d="M 50,50 C 40,65 22,78 32,88 C 42,98 48,70 50,50" fill="url(#gold-sticker)" stroke="#9c721c" stroke-width="0.8" />
+                            
+                            <!-- Ala Superior Derecha -->
+                            <path class="wing right-wing" d="M 50,50 C 55,25 80,12 88,25 C 95,35 85,62 50,50" fill="url(#gold-sticker)" stroke="#9c721c" stroke-width="0.8" />
+                            <!-- Ala Inferior Derecha -->
+                            <path class="wing right-wing" d="M 50,50 C 60,65 78,78 68,88 C 58,98 52,70 50,50" fill="url(#gold-sticker)" stroke="#9c721c" stroke-width="0.8" />
+                            
+                            <!-- Filigrana / Venas doradas de textura -->
+                            <path class="wing left-wing" d="M 50,50 Q 30,32 20,30 M 50,50 Q 30,45 22,48 M 50,50 Q 38,62 33,68" stroke="#9c721c" stroke-width="0.6" fill="none" opacity="0.7" />
+                            <path class="wing right-wing" d="M 50,50 Q 70,32 80,30 M 50,50 Q 70,45 78,48 M 50,50 Q 62,62 67,68" stroke="#9c721c" stroke-width="0.6" fill="none" opacity="0.7" />
+                        </g>
+                        
+                        <!-- Cuerpo y detalles centrales -->
+                        <g class="butterfly-body-group">
+                            <ellipse cx="50" cy="50" rx="3.2" ry="19" fill="#8c4f5e" />
+                            <circle cx="50" cy="30" r="3.8" fill="#8c4f5e" />
+                            <path d="M 48,28 Q 42,12 32,15" stroke="#8c4f5e" stroke-width="1.5" fill="none" />
+                            <circle cx="32" cy="15" r="1.5" fill="#8c4f5e" />
+                            <path d="M 52,28 Q 58,12 68,15" stroke="#8c4f5e" stroke-width="1.5" fill="none" />
+                            <circle cx="68" cy="15" r="1.5" fill="#8c4f5e" />
+                        </g>
+                    </svg>
                 </button>
             </div>
         </div>
