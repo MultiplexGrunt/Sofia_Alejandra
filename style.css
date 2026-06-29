@@ -1053,13 +1053,14 @@ body {
 }
 
 .details-cursive-quote {
-    font-family: 'Great Vibes', 'Pinyon Script', cursive;
-    font-size: 1.6rem;
+    font-family: 'Alex Brush', cursive;
+    font-size: 2.1rem;
     color: #8c4f5e;
     line-height: 1.45;
     margin-bottom: 15px;
     font-weight: normal;
     padding: 0 15px;
+    letter-spacing: 0.5px;
 }
 
 .details-crown-container {
