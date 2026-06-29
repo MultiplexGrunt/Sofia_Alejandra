@@ -58,248 +58,202 @@ body {
 }
 
 /* ==========================================================================
-   PANTALLA DE BIENVENIDA (SOBRE INTERACTIVO)
+   PANTALLA DE BIENVENIDA (SOBRE DE REFERENCIA CON ZOOM-IN)
    ========================================================================== */
-.welcome-screen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at center, #fff2f4 0%, #fae2e6 100%);
-    z-index: 9999;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: opacity 0.8s cubic-bezier(0.77, 0, 0.175, 1), visibility 0.8s;
+.envelope-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: visibility 0s linear 2s;
+  overflow: hidden;
+  background: radial-gradient(circle at center, #fff2f4 0%, #fae2e6 100%);
+}
+.envelope-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(253, 230, 233, 0.4) 0%, rgba(252, 235, 235, 0.8) 100%);
+  transition: opacity 1s ease-in-out 1s;
+  z-index: -1;
+}
+.envelope-overlay.opened {
+  visibility: hidden;
+  pointer-events: none;
+}
+.envelope-overlay.opened::before {
+  opacity: 0;
 }
 
-.welcome-screen.fade-out {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-}
-
-/* Contenedor del Sobre 3D */
 .envelope-wrapper {
-    position: relative;
-    width: 90%;
-    max-width: 380px;
-    height: 420px;
-    perspective: 1500px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 10;
+  position: relative;
+  width: 90%;
+  max-width: 500px;
+  aspect-ratio: 1.5 / 1;
+  cursor: pointer;
+  perspective: 1500px;
+  transform-origin: 50% 30%;
+  transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1) 0.5s, opacity 1s ease-in-out 0.8s;
+  z-index: 10;
+}
+.envelope-overlay.opened .envelope-wrapper {
+  transform: scale(20) translateY(5%);
+  opacity: 0;
 }
 
-.envelope {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    transform-style: preserve-3d;
+.env-back {
+  position: absolute;
+  inset: 0;
+  background: #f7d8dc;
+  border-radius: 4px;
+  box-shadow: 0 20px 50px rgba(140, 79, 94, 0.15);
+  transition: opacity 1s ease-in-out 0.6s;
+  border: 1.5px solid rgba(140, 79, 94, 0.05);
+}
+.envelope-overlay.opened .env-back {
+  opacity: 0;
 }
 
-/* Parte trasera del sobre (Fondo interno) */
-.envelope-back {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #fdf2f4;
-    border-radius: 16px;
-    border: 1.5px solid rgba(140, 79, 94, 0.1);
-    z-index: 1;
-    box-shadow: inset 0 0 30px rgba(140, 79, 94, 0.05), var(--box-shadow);
+/* Vista previa de tarjeta que asoma por dentro del sobre */
+.env-card-preview {
+  position: absolute;
+  top: 10px;
+  left: 5%;
+  width: 90%;
+  height: 90%;
+  background: #ffffff;
+  border-radius: 12px;
+  z-index: 2;
+  box-shadow: 0 4px 15px rgba(140, 79, 94, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  border: 1.5px solid rgba(223, 177, 91, 0.2);
+  transition: transform 1s ease-in-out;
+}
+.preview-avatar-wrapper {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid var(--gold);
+  padding: 2px;
+  background: white;
+  margin-bottom: 8px;
+}
+.preview-avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.preview-subtitle {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--primary-color);
+  margin-bottom: 2px;
+}
+.preview-title {
+  font-family: var(--font-fancy);
+  font-size: 1.5rem;
+  color: var(--primary-color);
 }
 
-/* Carta de bienvenida (dentro del sobre) */
-.welcome-card {
-    position: absolute;
-    top: 15px;
-    left: 5%;
-    width: 90%;
-    height: 93%;
-    background: rgba(255, 255, 255, 0.98);
-    border-radius: 20px;
-    padding: 30px 20px;
-    text-align: center;
-    border: 2px solid var(--gold-light);
-    z-index: 2;
-    box-shadow: 0 4px 15px rgba(140, 79, 94, 0.06);
-    transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
-    transform: translateY(0) scale(0.97);
+.env-bottom {
+  position: absolute;
+  inset: 0;
+  background: #f7d8dc;
+  border-radius: 4px;
+  clip-path: polygon(0 100%, 100% 100%, 50% 35%);
+  z-index: 3;
 }
 
-.welcome-avatar-wrapper {
-    width: 110px;
-    height: 110px;
-    margin: 0 auto 15px auto;
-    border-radius: 50%;
-    border: 3px solid var(--gold);
-    padding: 4px;
-    background: white;
-    box-shadow: 0 8px 20px rgba(140, 79, 94, 0.1);
+.env-left {
+  position: absolute;
+  inset: 0;
+  background: #f7d8dc;
+  filter: brightness(0.96);
+  border-radius: 4px;
+  clip-path: polygon(0 0, 0 100%, 50% 50%);
+  z-index: 2;
 }
 
-.welcome-avatar {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
+.env-right {
+  position: absolute;
+  inset: 0;
+  background: #f7d8dc;
+  filter: brightness(0.96);
+  border-radius: 4px;
+  clip-path: polygon(100% 0, 100% 100%, 50% 50%);
+  z-index: 2;
 }
 
-.welcome-subtitle {
-    font-size: 0.82rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: var(--primary-color);
-    font-weight: 600;
-    margin-bottom: 5px;
+.env-flap {
+  position: absolute;
+  inset: 0;
+  background: #f0b5be;
+  border-radius: 4px;
+  clip-path: polygon(0 0, 100% 0, 50% 60%);
+  z-index: 4;
+  transform-origin: top;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+.envelope-overlay.opened .env-flap {
+  transform: rotateX(180deg);
+  z-index: 1;
 }
 
-.welcome-title {
-    font-family: var(--font-fancy);
-    font-size: 2.5rem;
-    color: var(--primary-color);
-    margin-bottom: 8px;
-    text-shadow: 1px 1px 0px rgba(255,255,255,0.8);
+/* Pegatina de mariposa flotando sobre el sobre */
+.butterfly-sticker-wrapper {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  transition: opacity 0.3s ease;
 }
-
-.welcome-date {
-    font-size: 0.92rem;
-    color: var(--gold);
-    font-weight: 600;
-    letter-spacing: 3px;
-    margin-bottom: 10px;
-}
-
-/* Parte frontal del sobre (Papel doblado con vectores SVG precisos) */
-.envelope-front-svg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 3;
-    pointer-events: none;
-    filter: drop-shadow(0 -4px 12px rgba(140, 79, 94, 0.03));
-}
-
-/* Contenedor rotatorio para la solapa superior */
-.envelope-flap-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 290px; /* Altura hasta la punta de la solapa */
-    transform-origin: top;
-    z-index: 4;
-    transform-style: preserve-3d;
-    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), z-index 0s linear 0.4s;
-}
-
-.envelope-flap-svg {
-    width: 100%;
-    height: 100%;
-    display: block;
-    filter: drop-shadow(0 4px 6px rgba(140, 79, 94, 0.08));
-}
-
-/* LÓGICA DE APERTURA */
-.envelope.open .envelope-flap-container {
-    transform: rotateX(180deg);
-    z-index: 1;
-}
-
-.envelope.open .welcome-card {
-    transform: translateY(-78%) scale(1.02);
-    z-index: 5;
-    box-shadow: 0 15px 35px rgba(140, 79, 94, 0.15);
-}
-
-/* Pegatina de Mariposa Interactiva */
-.butterfly-sticker-btn {
-    position: absolute;
-    top: 290px; /* Posicionada exactamente en la punta de la solapa (Y=290 en SVG) */
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 6;
-    background: none;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    outline: none;
-    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+.envelope-overlay.opened .butterfly-sticker-wrapper {
+  opacity: 0;
 }
 
 .butterfly-svg {
-    width: 90px;
-    height: 90px;
-    filter: drop-shadow(0 5px 10px rgba(140, 79, 94, 0.25));
-    transition: transform 0.3s ease;
-    transform-style: preserve-3d;
-    animation: gentleHover 3s infinite ease-in-out;
+  width: 80px;
+  height: 80px;
+  filter: drop-shadow(0 4px 8px rgba(140, 79, 94, 0.2));
+  transform-style: preserve-3d;
+  animation: gentleHover 3s infinite ease-in-out;
 }
 
 /* Aleteo 3D de la Mariposa */
 .butterfly-svg .wing.left-wing {
-    transform-origin: 50px 50px;
-    animation: flap-left 2.2s infinite alternate ease-in-out;
+  transform-origin: 50px 50px;
+  animation: flap-left 2.2s infinite alternate ease-in-out;
 }
 
 .butterfly-svg .wing.right-wing {
-    transform-origin: 50px 50px;
-    animation: flap-right 2.2s infinite alternate ease-in-out;
-}
-
-/* Efectos Hover */
-.butterfly-sticker-btn:hover {
-    transform: translate(-50%, -53%) scale(1.1);
-}
-
-.butterfly-sticker-btn:hover .butterfly-svg {
-    animation-play-state: paused; /* Detener flotación lenta al hacer hover */
-    filter: drop-shadow(0 8px 15px rgba(140, 79, 94, 0.3));
-}
-
-.butterfly-sticker-btn:hover .wing.left-wing {
-    animation-duration: 0.4s;
-}
-
-.butterfly-sticker-btn:hover .wing.right-wing {
-    animation-duration: 0.4s;
-}
-
-/* Animación al hacer clic (Vuela y se desvanece) */
-.butterfly-sticker-btn.clicked {
-    pointer-events: none;
-    animation: flyAway 0.9s forwards cubic-bezier(0.25, 1, 0.50, 1);
+  transform-origin: 50px 50px;
+  animation: flap-right 2.2s infinite alternate ease-in-out;
 }
 
 /* Keyframes de Aleteo y Animaciones */
 @keyframes flap-left {
-    0% { transform: scaleX(1); }
-    100% { transform: scaleX(0.2) skewY(-6deg); }
+  0% { transform: scaleX(1); }
+  100% { transform: scaleX(0.25) skewY(-5deg); }
 }
 
 @keyframes flap-right {
-    0% { transform: scaleX(1); }
-    100% { transform: scaleX(0.2) skewY(6deg); }
-}
-
-@keyframes flyAway {
-    0% { transform: translate(-50%, -50%) scale(1) rotate(0deg); opacity: 1; }
-    30% { transform: translate(-25%, -65%) scale(1.3) rotate(-15deg); opacity: 1; }
-    100% { transform: translate(160%, -350%) scale(0.4) rotate(-35deg); opacity: 0; }
+  0% { transform: scaleX(1); }
+  100% { transform: scaleX(0.25) skewY(5deg); }
 }
 
 @keyframes gentleHover {
-    0%, 100% { transform: translateY(0) scale(1); }
-    50% { transform: translateY(-5px) scale(1.03); }
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-5px) scale(1.05); }
 }
 
 /* ==========================================================================

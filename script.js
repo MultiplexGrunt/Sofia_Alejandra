@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Intentar reducir volumen para que sea agradable
     bgMusic.volume = 0.5;
 
-    // Al presionar la pegatina de mariposa para abrir el sobre
+    // Al hacer clic en el sobre para abrirlo
     if (btnOpenEnvelope) {
         btnOpenEnvelope.addEventListener("click", () => {
             // 1. Iniciar la reproducción de la música de fondo (consintiendo el audio en el navegador)
@@ -51,28 +51,20 @@ document.addEventListener("DOMContentLoaded", () => {
                 console.log("Auto-play bloqueado por el navegador o error al reproducir:", err);
             });
 
-            // 2. Añadir clase clicked a la mariposa para que empiece a volar
-            btnOpenEnvelope.classList.add("clicked");
+            // 2. Añadir la clase 'opened' al sobre para iniciar la rotación de solapa y el efecto zoom-in
+            welcomeScreen.classList.add("opened");
 
-            // 3. Abrir la solapa del sobre tras el inicio del vuelo (400ms)
+            // 3. Mostrar el control de música y disparar efectos visuales un poco después (600ms)
             setTimeout(() => {
-                if (envelope) envelope.classList.add("open");
-            }, 400);
-
-            // 4. Desvanecer toda la pantalla de bienvenida tras ver salir la carta (2400ms)
-            setTimeout(() => {
-                welcomeScreen.classList.add("fade-out");
-                
-                // Mostrar el control de música y disparar efectos
                 musicControl.classList.remove("hidden");
                 startParticles();
                 initScrollReveal();
-            }, 2400);
+            }, 600);
 
-            // 5. Ocultar físicamente la pantalla del DOM para liberar espacio (3200ms)
+            // 4. Ocultar físicamente la pantalla del sobre una vez terminada la transición de zoom (2100ms)
             setTimeout(() => {
                 welcomeScreen.style.display = "none";
-            }, 3200);
+            }, 2100);
         });
     }
 
