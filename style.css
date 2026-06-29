@@ -978,6 +978,199 @@ body {
 /* ==========================================================================
    ESTILOS ADICIONALES DE ADAPTACIÓN MÓVIL
    ========================================================================== */
+/* ==========================================================================
+   ESTILOS DE MAQUETACIÓN DINÁMICA (RECREACIÓN DE INVITACIÓN)
+   ========================================================================== */
+
+/* --- PORTADA / COVER COMPOSITION --- */
+.hero-composition {
+    position: relative;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto 20px auto;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-frame-img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    z-index: 2;
+    filter: drop-shadow(0 10px 25px rgba(140, 79, 94, 0.15));
+}
+
+.hero-bunny-img {
+    position: absolute;
+    width: 52%;
+    height: auto;
+    z-index: 1;
+    top: 24%;
+    left: 23%;
+    filter: drop-shadow(0 5px 15px rgba(140, 79, 94, 0.08));
+    animation: gentleHover 4s infinite ease-in-out;
+}
+
+.dynamic-hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-weight: 600;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.dynamic-hero-name {
+    font-family: 'Pinyon Script', 'Great Vibes', cursive;
+    font-size: 3.5rem;
+    color: var(--primary-color);
+    line-height: 1.1;
+    margin-top: 0;
+    margin-bottom: 25px;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+/* --- DETALLES DINÁMICOS CARD --- */
+.dynamic-details-card {
+    position: relative;
+    padding-bottom: 90px !important; /* Dejar espacio para el conejo superpuesto */
+    overflow: visible !important; /* Permitir que el conejo sobresalga */
+}
+
+.crown-container {
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    filter: drop-shadow(0 2px 4px rgba(223, 177, 91, 0.3));
+}
+
+.crown-svg {
+    display: block;
+}
+
+.dynamic-datetime-block {
+    margin: 25px 0;
+    border-top: 2px dashed rgba(223, 177, 91, 0.4);
+    border-bottom: 2px dashed rgba(223, 177, 91, 0.4);
+    padding: 20px 0;
+}
+
+.details-month {
+    font-family: 'Pinyon Script', 'Great Vibes', cursive;
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 8px;
+}
+
+.details-date-row {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 320px;
+    margin: 0 auto;
+}
+
+.date-col-day {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--text-color);
+    font-weight: 600;
+    width: 30%;
+}
+
+.date-col-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    line-height: 1;
+    width: 40%;
+    text-align: center;
+}
+
+.date-col-time {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--text-color);
+    font-weight: 600;
+    width: 30%;
+}
+
+.dynamic-location-block {
+    margin-top: 15px;
+}
+
+.details-location-label {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--gold);
+    font-style: italic;
+    margin-bottom: 4px;
+}
+
+.details-location-value {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.25rem;
+    color: var(--accent-color);
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.details-bunny-corner {
+    position: absolute;
+    bottom: -20px;
+    right: -15px;
+    width: 140px;
+    height: auto;
+    z-index: 10;
+    filter: drop-shadow(0 8px 16px rgba(140, 79, 94, 0.15));
+    pointer-events: none;
+}
+
+/* --- AGRADECIMIENTO / DESPEDIDA COMPOSITION --- */
+.thank-you-composition {
+    position: relative;
+    width: 100%;
+    max-width: 250px;
+    margin: 0 auto 20px auto;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.thank-you-frame-img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    z-index: 2;
+    filter: drop-shadow(0 6px 15px rgba(140, 79, 94, 0.12));
+}
+
+.thank-you-bunny-img {
+    position: absolute;
+    width: 52%;
+    height: auto;
+    z-index: 1;
+    top: 24%;
+    left: 23%;
+    filter: drop-shadow(0 4px 10px rgba(140, 79, 94, 0.06));
+}
+
+.thank-you-card {
+    padding-bottom: 25px !important;
+}
+
 @media (max-width: 480px) {
     .main-wrapper {
         box-shadow: none;
@@ -985,5 +1178,10 @@ body {
     }
     .welcome-card {
         width: 92%;
+    }
+    .details-bunny-corner {
+        width: 120px;
+        bottom: -15px;
+        right: -10px;
     }
 }

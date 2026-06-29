@@ -30,7 +30,7 @@
             <!-- Vista previa de la tarjeta que asoma por dentro del sobre -->
             <div class="env-card-preview">
                 <div class="preview-avatar-wrapper">
-                    <img src="assets/invitacion_extra.jpg" alt="Teaser" class="preview-avatar">
+                    <img src="assets/conejo.png" alt="Teaser" class="preview-avatar">
                 </div>
                 <p class="preview-subtitle">Baby Shower de</p>
                 <p class="preview-title">Sofía Alejandra</p>
@@ -112,14 +112,17 @@
         <!-- Contenedor para Pétalos y Destellos Flotantes en Segundo Plano -->
         <div id="particles-container" class="particles-container"></div>
 
-        <!-- SECCIÓN 1: Portada (Hero) -->
+        <!-- SECCIÓN 1: Portada (Hero Dinámica) -->
         <section id="portada" class="section card-section">
-            <div class="card-frame animate-fade-in">
-                <!-- Imagen de Portada provista -->
-                <div class="image-container port-img-container">
-                    <img src="assets/invitacion_portada.jpg" alt="Baby Shower Sofía Alejandra" class="invitation-image main-cover-img">
-                    <div class="gold-inner-shadow"></div>
+            <div class="card-frame animate-fade-in text-center">
+                <!-- Composición de portada dinámica -->
+                <div class="hero-composition">
+                    <img src="assets/marco.png" alt="Marco de espejo dorado" class="hero-frame-img">
+                    <img src="assets/conejo.png" alt="Conejo en tutu" class="hero-bunny-img">
                 </div>
+                
+                <h2 class="dynamic-hero-title">Baby Shower</h2>
+                <h1 class="dynamic-hero-name">Sofía Alejandra</h1>
                 
                 <div class="hero-text-content">
                     <p class="hero-scroll-indicator">Desliza hacia abajo para ver los detalles</p>
@@ -132,32 +135,43 @@
             </div>
         </section>
 
-        <!-- SECCIÓN 2: Mensaje de Bienvenida -->
+        <!-- SECCIÓN 2: Mensaje de Bienvenida e Invitación Dinámica -->
         <section id="bienvenida" class="section card-section scroll-reveal">
-            <div class="glass-card text-center">
-                <div class="decorative-ribbon">
-                    <svg viewBox="0 0 100 20" width="80" height="20">
-                        <path d="M10,10 Q50,0 90,10 Q50,20 10,10 Z" fill="none" stroke="#dfb15b" stroke-width="1.5"/>
-                        <circle cx="50" cy="10" r="3" fill="#dfb15b"/>
+            <div class="glass-card text-center dynamic-details-card">
+                <!-- Corona de oro en SVG -->
+                <div class="crown-container">
+                    <svg class="crown-svg" viewBox="0 0 100 60" width="50" height="30">
+                        <path d="M 10 50 L 15 20 L 35 38 L 50 10 L 65 38 L 85 20 L 90 50 Z" fill="#dfb15b" />
+                        <circle cx="15" cy="20" r="3" fill="#dfb15b" />
+                        <circle cx="35" cy="38" r="3" fill="#dfb15b" />
+                        <circle cx="50" cy="10" r="3.5" fill="#dfb15b" />
+                        <circle cx="65" cy="38" r="3" fill="#dfb15b" />
+                        <circle cx="85" cy="20" r="3" fill="#dfb15b" />
+                        <rect x="8" y="52" width="84" height="4" rx="2" fill="#dfb15b" />
                     </svg>
                 </div>
                 
                 <p class="welcome-quote">
-                    "Una pequeña princesa viene en camino, y queremos celebrar este hermoso momento contigo. ¡Acompáñanos a darle la bienvenida con mucho amor!"
+                    Una pequeña princesa viene en camino, y queremos celebrar este hermoso momento contigo. ¡Acompáñanos a darle la bienvenida con mucho amor!
                 </p>
                 
-                <div class="heart-divider">
-                    <span>♥</span>
+                <!-- Bloque de fecha y hora dinamico -->
+                <div class="dynamic-datetime-block">
+                    <p class="details-month">Julio</p>
+                    <div class="details-date-row">
+                        <div class="date-col-day">Sábado</div>
+                        <div class="date-col-num">11</div>
+                        <div class="date-col-time">16:00 hrs</div>
+                    </div>
                 </div>
                 
-                <!-- Imagen de Detalles del Evento -->
-                <div class="image-container details-img-container">
-                    <img src="assets/invitacion_detalles.jpg" alt="Detalles de la Invitación" class="invitation-image">
-                    <div class="gold-border-corner top-left"></div>
-                    <div class="gold-border-corner top-right"></div>
-                    <div class="gold-border-corner bottom-left"></div>
-                    <div class="gold-border-corner bottom-right"></div>
+                <div class="dynamic-location-block">
+                    <p class="details-location-label">Lugar:</p>
+                    <p class="details-location-value">Quinta San Judas Tadeo</p>
                 </div>
+                
+                <!-- Conejo en el borde inferior derecho, superpuesto -->
+                <img src="assets/conejo.png" alt="Conejo de adorno" class="details-bunny-corner">
             </div>
         </section>
 
@@ -310,13 +324,15 @@
             </div>
         </section>
 
-        <!-- SECCIÓN 7: Agradecimiento y Tercer Recurso -->
+        <!-- SECCIÓN 7: Agradecimiento (Despedida Dinámica) -->
         <section id="agradecimiento" class="section card-section scroll-reveal">
-            <div class="card-frame thank-you-card">
-                <div class="image-container final-img-container">
-                    <img src="assets/invitacion_extra.jpg" alt="Agradecimiento Baby Shower" class="invitation-image final-bunny-img">
-                    <div class="gold-inner-shadow"></div>
+            <div class="card-frame thank-you-card text-center">
+                <!-- Composición final dinámica -->
+                <div class="thank-you-composition">
+                    <img src="assets/marco.png" alt="Marco dorado" class="thank-you-frame-img">
+                    <img src="assets/conejo.png" alt="Conejo tutu final" class="thank-you-bunny-img">
                 </div>
+                
                 <div class="thank-you-footer">
                     <p class="thank-you-text">¡Te esperamos para compartir la alegría de este día tan especial!</p>
                     <div class="heart-pulse">❤</div>
