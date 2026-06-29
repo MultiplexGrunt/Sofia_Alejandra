@@ -1038,15 +1038,28 @@ body {
     overflow: visible !important; /* Permitir que el conejo sobresalga */
 }
 
-.crown-container {
+.details-crown-container {
     margin-bottom: 15px;
     display: flex;
     justify-content: center;
-    filter: drop-shadow(0 2px 4px rgba(223, 177, 91, 0.3));
 }
 
-.crown-svg {
-    display: block;
+.details-crown-img {
+    width: 65px;
+    height: auto;
+    filter: drop-shadow(0 4px 8px rgba(223, 177, 91, 0.2));
+}
+
+.details-ribbon-container {
+    margin: 15px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.details-ribbon-img {
+    width: 150px;
+    height: auto;
+    filter: drop-shadow(0 3px 6px rgba(140, 79, 94, 0.08));
 }
 
 .dynamic-datetime-block {
