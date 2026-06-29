@@ -234,97 +234,19 @@
                 <h3 class="location-name">Quinta San Judas Tadeo</h3>
                 <p class="location-details">Sábado 11 de Julio a las 16:00 hrs</p>
                 
-                <!-- Mapa de fantasía elegante o previsualización de acuarela -->
-                <div class="map-preview-card">
-                    <div class="map-overlay">
-                        <p class="map-address">Haz clic abajo para abrir la ruta en tu GPS preferido</p>
-                    </div>
+                <!-- Mapa de Google Maps Incrustado Directamente -->
+                <div class="map-iframe-container" style="margin: 20px 0; border-radius: 16px; overflow: hidden; box-shadow: 0 8px 25px rgba(140, 79, 94, 0.08); border: 1.5px solid rgba(223, 177, 91, 0.3);">
+                    <iframe src="https://maps.google.com/maps?q=Quinta%20San%20Judas%20Tadeo&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="220" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
                 
-                <div class="action-buttons-group">
-                    <a href="https://www.google.com/maps/search/?api=1&query=Quinta+San+Judas+Tadeo" target="_blank" class="btn-primary map-btn">
+                <div class="action-buttons-group" style="justify-content: center; display: flex;">
+                    <a href="https://www.google.com/maps/search/?api=1&query=Quinta+San+Judas+Tadeo" target="_blank" class="btn-primary map-btn" style="width: 100%; max-width: 280px; display: inline-flex; justify-content: center; align-items: center; gap: 8px;">
                         <svg class="btn-icon" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
                             <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
                         </svg>
-                        Google Maps
-                    </a>
-                    
-                    <a href="https://waze.com/ul?q=Quinta%20San%20Judas%20Tadeo" target="_blank" class="btn-primary waze-btn">
-                        <svg class="btn-icon" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
-                            <path d="M21.6 11.2c-.3-.2-.6-.3-1-.3h-.3c-.3 0-.6-.1-.8-.4-.3-.4-.5-.9-.5-1.4 0-1.7-1.3-3.1-3-3.1h-.2c-.3 0-.6-.1-.8-.3C14.7 5.2 13.9 5 13 5c-3.3 0-6 2.7-6 6 0 1 .3 1.9.8 2.7.2.3.2.6.1.9l-.6 1.8c-.1.3 0 .6.2.8.2.1.4.2.6.2.1 0 .2 0 .3-.1l2-1c.2-.1.4-.1.6 0 1.2.6 2.6.9 4 .9 3.3 0 6-2.7 6-6 0-.3-.1-.7-.2-1zm-9.6 1.8c-.8 0-1.5-.7-1.5-1.5s.7-1.5 1.5-1.5 1.5.7 1.5 1.5-.7 1.5-1.5 1.5zm4 0c-.8 0-1.5-.7-1.5-1.5s.7-1.5 1.5-1.5 1.5.7 1.5 1.5-.7 1.5-1.5 1.5z"/>
-                        </svg>
-                        Waze GPS
+                        Abrir en Google Maps
                     </a>
                 </div>
-            </div>
-        </section>
-
-        <!-- SECCIÓN 5: Mesa de Regalos -->
-        <section id="regalos" class="section card-section scroll-reveal">
-            <div class="glass-card text-center">
-                <div class="gift-icon-header">
-                    <svg viewBox="0 0 24 24" width="40" height="40" fill="#dfb15b">
-                        <path d="M20 6h-2.18c.11-.31.18-.65.18-1 0-1.66-1.34-3-3-3-1.62 0-2.98 1.28-3 2.88L12 4.78l-.02-.9C11.98 2.28 10.62 1 9 1c-1.66 0-3 1.34-3 3 0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-5-2c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1h-1V4zm-6 0c0-.55.45-1 1-1s1 .45 1 1v1H9c-.55 0-1-.45-1-1zm11 15H4V8h16v11zM11 10h2v7h-2z"/>
-                    </svg>
-                </div>
-                
-                <h2 class="section-title">Mesa de Regalos</h2>
-                <p class="section-subtitle">Tu cariño es nuestro mejor regalo, pero si deseas hacernos un detalle aquí tienes algunas opciones:</p>
-                
-                <div class="gift-options">
-                    <!-- Tarjeta de Tienda 1: Liverpool -->
-                    <div class="gift-card">
-                        <div class="store-badge liverpool">Liverpool</div>
-                        <p class="gift-card-desc">Puedes buscar nuestra mesa con el número de evento:</p>
-                        <p class="gift-code">51428390</p>
-                        <a href="https://mesaderegados.liverpool.com.mx/" target="_blank" class="btn-gift">
-                            Ver Mesa de Regalos
-                        </a>
-                    </div>
-                    
-                    <!-- Tarjeta de Tienda 2: Amazon -->
-                    <div class="gift-card">
-                        <div class="store-badge amazon">Amazon</div>
-                        <p class="gift-card-desc">Encuentra nuestra mesa de regalos buscando por nombre:</p>
-                        <p class="gift-code">Sofía Alejandra</p>
-                        <a href="https://www.amazon.com.mx/baby-reg" target="_blank" class="btn-gift">
-                            Ver Lista de Amazon
-                        </a>
-                    </div>
-                    
-                    <!-- Tarjeta de Efectivo / Lluvia de Sobres -->
-                    <div class="gift-card cash-card">
-                        <div class="envelope-icon">✉</div>
-                        <div class="store-badge text-gold">Lluvia de Sobres</div>
-                        <p class="gift-card-desc">Si lo prefieres, el día del evento contaremos con un cofre para sobres con efectivo.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECCIÓN 6: Confirmación (RSVP) -->
-        <section id="rsvp" class="section card-section scroll-reveal">
-            <div class="glass-card text-center rsvp-card">
-                <h2 class="section-title text-white">¿Nos acompañas?</h2>
-                <p class="rsvp-text text-white">Para nosotros es muy importante contar con tu presencia. Agradecemos confirmar antes del 5 de Julio.</p>
-                
-                <!-- Controles para la Confirmación Rápida -->
-                <div class="rsvp-inputs">
-                    <input type="text" id="guest-name" class="rsvp-input" placeholder="Escribe tu nombre(s)" required>
-                    <select id="guest-count" class="rsvp-select">
-                        <option value="1">1 Persona</option>
-                        <option value="2">2 Personas</option>
-                        <option value="3">3 Personas</option>
-                        <option value="4">4 Personas</option>
-                    </select>
-                </div>
-
-                <button id="btn-rsvp" class="btn-rsvp-whatsapp">
-                    <svg class="btn-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-                        <path d="M12.03 2c-5.52 0-10 4.48-10 10a9.96 9.96 0 0 0 1.25 4.87l-.02.04-1.2 4.39a.75.75 0 0 0 .92.92l4.39-1.2.04-.02c1.47.8 3.14 1.25 4.9 1.25 5.52 0 10-4.48 10-10V12c0-5.52-4.48-10-10-10zm4.72 13.92c-.22.62-1.3 1.21-1.8 1.26-.47.05-.93.18-3.08-.71a10.02 10.02 0 0 1-4.76-4.22c-.65-.89-.96-1.92-.93-2.92.05-.85.47-1.42.79-1.74.22-.22.56-.3.84-.3h.52c.22 0 .49-.07.72.48.24.58.82 2.01.89 2.15.07.15.12.32.02.5-.1.18-.15.3-.3.48-.15.18-.3.3-.43.48-.15.18-.02.38.12.62.62.99 1.54 1.77 2.58 2.29.28.14.47.16.63-.03.16-.18.68-.79.86-1.06.18-.28.37-.22.63-.12s1.7.8 2 1c.3.15.5.22.57.35.08.13.08.77-.14 1.39z"/>
-                    </svg>
-                    Confirmar Asistencia por WhatsApp
-                </button>
             </div>
         </section>
 

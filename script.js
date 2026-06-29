@@ -36,7 +36,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const musicControl = document.getElementById("music-control");
     const btnMusicToggle = document.getElementById("btn-music-toggle");
     const btnSaveDate = document.getElementById("btn-save-date");
-    const btnRSVP = document.getElementById("btn-rsvp");
     
     // Intentar reducir volumen para que sea agradable
     bgMusic.volume = 0.5;
@@ -90,31 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Evento RSVP por WhatsApp
-    if (btnRSVP) {
-        btnRSVP.addEventListener("click", () => {
-            const guestName = document.getElementById("guest-name").value.trim();
-            const guestCount = document.getElementById("guest-count").value;
 
-            if (!guestName) {
-                alert("Por favor, introduce tu nombre para confirmar.");
-                document.getElementById("guest-name").focus();
-                return;
-            }
-
-            // Crear el mensaje personalizado
-            const message = `¡Hola! Confirmo mi asistencia al Baby Shower de *Sofía Alejandra*.\n\n` + 
-                            `👤 *Nombre:* ${guestName}\n` + 
-                            `👥 *Personas:* ${guestCount} ${guestCount === "1" ? "persona" : "personas"}\n\n` + 
-                            `¡Nos vemos el 11 de Julio!`;
-
-            // Generar enlace API de WhatsApp
-            const whatsappURL = `https://api.whatsapp.com/send?phone=${CONFIG.rsvpPhone}&text=${encodeURIComponent(message)}`;
-            
-            // Abrir en nueva pestaña
-            window.open(whatsappURL, "_blank");
-        });
-    }
 });
 
 /* ==========================================================================
