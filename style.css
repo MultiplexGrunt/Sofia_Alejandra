@@ -1034,46 +1034,72 @@ body {
 /* --- DETALLES DINÁMICOS CARD --- */
 .dynamic-details-card {
     position: relative;
-    padding-bottom: 90px !important; /* Dejar espacio para el conejo superpuesto */
-    overflow: visible !important; /* Permitir que el conejo sobresalga */
+    padding-top: 20px !important; /* Dejar espacio para el lazo que sobresale arriba */
+    padding-bottom: 100px !important; /* Dejar espacio para el conejo de abajo */
+    overflow: visible !important;
+}
+
+.details-ribbon-header {
+    margin-top: -65px; /* Hace que el lazo se monte en la parte superior del arco */
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.details-ribbon-header-img {
+    width: 250px; /* Tamaño del lazo de flores */
+    height: auto;
+    filter: drop-shadow(0 5px 12px rgba(140, 79, 94, 0.12));
+}
+
+.details-cursive-quote {
+    font-family: 'Great Vibes', 'Pinyon Script', cursive;
+    font-size: 1.6rem;
+    color: #8c4f5e;
+    line-height: 1.45;
+    margin-bottom: 15px;
+    font-weight: normal;
+    padding: 0 15px;
 }
 
 .details-crown-container {
-    margin-bottom: 15px;
+    margin-top: 10px;
+    margin-bottom: 0px;
     display: flex;
     justify-content: center;
 }
 
 .details-crown-img {
-    width: 65px;
+    width: 55px; /* Corona dorada tamaño medio */
     height: auto;
-    filter: drop-shadow(0 4px 8px rgba(223, 177, 91, 0.2));
-}
-
-.details-ribbon-container {
-    margin: 15px 0;
-    display: flex;
-    justify-content: center;
-}
-
-.details-ribbon-img {
-    width: 150px;
-    height: auto;
-    filter: drop-shadow(0 3px 6px rgba(140, 79, 94, 0.08));
+    filter: drop-shadow(0 3px 6px rgba(223, 177, 91, 0.25));
 }
 
 .dynamic-datetime-block {
-    margin: 25px 0;
-    border-top: 2px dashed rgba(223, 177, 91, 0.4);
-    border-bottom: 2px dashed rgba(223, 177, 91, 0.4);
-    padding: 20px 0;
+    margin: 10px 0 20px 0;
+    width: 100%;
+}
+
+.details-month-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 5px;
+}
+
+.details-month-row::before,
+.details-month-row::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1.5px dashed #8c4f5e; /* Línea de puntos de la fecha */
 }
 
 .details-month {
     font-family: 'Pinyon Script', 'Great Vibes', cursive;
-    font-size: 2.5rem;
-    color: var(--primary-color);
-    margin-bottom: 8px;
+    font-size: 2.8rem;
+    color: #8c4f5e;
+    line-height: 1.1;
 }
 
 .details-date-row {
@@ -1085,63 +1111,70 @@ body {
 }
 
 .date-col-day {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: var(--text-color);
-    font-weight: 600;
-    width: 30%;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.3rem;
+    color: #8c4f5e;
+    font-style: italic;
+    font-weight: 500;
+    width: 35%;
+    text-align: right;
 }
 
 .date-col-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 4rem;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 3.4rem;
     font-weight: 700;
-    color: var(--accent-color);
+    color: #e5999d; /* Color coral/salmón de la fecha */
     line-height: 1;
-    width: 40%;
+    width: 30%;
     text-align: center;
+    padding: 0 5px;
 }
 
 .date-col-time {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: var(--text-color);
-    font-weight: 600;
-    width: 30%;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.3rem;
+    color: #8c4f5e;
+    font-style: italic;
+    font-weight: 500;
+    width: 35%;
+    text-align: left;
+}
+
+.details-dashed-divider {
+    border-bottom: 1.5px dashed #8c4f5e; /* Segunda línea de puntos */
+    margin-top: 15px;
+    width: 100%;
 }
 
 .dynamic-location-block {
-    margin-top: 15px;
+    margin-top: 10px;
 }
 
 .details-location-label {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.1rem;
-    color: var(--gold);
-    font-style: italic;
-    margin-bottom: 4px;
+    font-family: 'Great Vibes', 'Pinyon Script', cursive;
+    font-size: 2.4rem;
+    color: #8c4f5e;
+    margin-bottom: 0px;
+    font-weight: normal;
 }
 
 .details-location-value {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.25rem;
-    color: var(--accent-color);
-    font-weight: 600;
-    letter-spacing: 1px;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.6rem;
+    color: #e5999d; /* Color del lugar */
+    font-weight: 700;
+    letter-spacing: 0.5px;
 }
 
 .details-bunny-corner {
     position: absolute;
-    bottom: -20px;
-    right: -15px;
-    width: 140px;
+    bottom: -35px;
+    right: -25px;
+    width: 155px; /* Tamaño del conejo con corona de flores */
     height: auto;
     z-index: 10;
-    filter: drop-shadow(0 8px 16px rgba(140, 79, 94, 0.15));
+    filter: drop-shadow(0 8px 20px rgba(140, 79, 94, 0.15));
     pointer-events: none;
 }
 
